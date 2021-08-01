@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.title{
+    position: relative;
+    text-transform: uppercase;
+    width: 60%;
+    color: white;
+    font-size: xx-large;
+    text-align: left;
+    padding-top: 150px;
+    padding-bottom: 10px;
+}
+.carousel{
+    height: 350px;
+    width: 62%;
+    position: relative;
+    border: 2px solid rgb(14, 14, 202);
+
+}
+.carousel .switchLeft,
+.carousel .switchRight{
+    color: white;
+    font-weight: bold;
+    height: 100%;
+    width: 45px;
+    line-height: 300px;
+    font-size: 25px;
+    text-align: center;
+    background-color: rgb(216, 11, 11);
+    font-family: sans-serif;
+    top: 0;
+    z-index: 1;
+    border: 2px solid rgb(201, 61, 6);
+
+
+}
+.carousel .switchLeft{
+    position: absolute;
+    left: -50px;
+    border: 2px solid green;
+
+}
+.carousel .switchRight{
+    position: absolute;
+    right: -50px;
+    border: 2px solid green;
+
+}
+.movies_box {
+    height: 300px;
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgb(0, 128, 122);
+
+}
+.carousel img{
+    min-width: 182px;
+    max-width: 182px;
+    height: 268px;
+    background-size: cover;
+    background-color: lightgreen;
+    margin: 5px 20px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 1;
+    border: 2px solid green;
+
+}
+.carousel img:hover{
+    transform: scale(1.3);
+}
+#best_movie {
+	border: 2px solid rgba(255, 196, 0, 0.575);
+    box-shadow: 0 1px 12px 5px #f47509db;
+	background: black;
+	width: 96%;
+	margin: 20px;
+	padding: 0;
+	text-align: justify;
+	display: flex;
+    height: 420px;
+}
+
+.black-block {
+    flex: 10%;
+    border: 1px solid gray;
+    flex: 1;
+}
+.movie {
+    padding: 0;
+    border: 2px solid rgb(243, 9, 9);
+    flex: 60%;
+    max-width: 1000px;
+    max-height: 420px;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+}
+#title {
+    padding: 10px 0;
+    border: 1px solid blue;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: bolder;
+}
+
+em {
+    font-style: normal;
+    font-weight: bold;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+::-webkit-scrollbar {
+    background-color: black;
+}
+::-webkit-scrollbar-button {
+    background-color: #807d7d54;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
+#myBtn{
+    margin: 40px;
+    box-shadow:  0px 0px 20px 3px #686666;
+    transform: scale(1.2);
+}
+.selected_movie {
+	border: 2px solid rgba(255, 196, 0, 0.575);
+    box-shadow: 0 1px 12px 5px #f47509db;
+	background: rgb(68, 1, 1);
+	width: 96%;
+	margin: 20px;
+	padding: 0;
+	text-align: justify;
+	display: flex;
+    flex-direction: row;
+    height: 420px;
+}
+.movie{
+    flex: 60%
+}
+#image_url_cible{
+    border: 2px solid coral;
+    flex: 30%;
+    margin: 44px 20px 40px 20px;
+    /* margin-left: 30px; */
+    align-items: center;
+    width: 220px;
+    height: auto;
+}
+.data {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    list-style-type: none;
+    max-height: 120px;
+    overflow-y: auto;
+}
+#actors{
+    min-height: 20px;
+    max-height: 60px;
+    overflow-y: auto;
+    border: 1px solid rgb(255, 72, 0);
+}
+#synopsis{
+    overflow-y: auto;
+    max-height: 170px;
+    border: 1px solid rgb(255, 0, 212);
+}
+.characters{
+    border: 2px solid rgb(68, 0, 255);
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #3ff3db;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #2048fa5d;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

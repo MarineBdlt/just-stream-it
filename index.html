@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>carrousel type netflix</title>
+</head>
+<body>
+    <div class="title">
+        Les films les mieux notés
+    </div>
+    <div class="carousel">
+        <div class="movies_box best_movies_group"><!-- Random data will come here -->
+            <img class="movies best_movies" alt="movie">
+            <img class="movies best_movies" alt="movie">
+            <img class="movies best_movies" alt="movie">
+            <img class="movies best_movies" alt="movie">
+            <img class="movies best_movies" alt="movie">
+            <img class="movies best_movies" alt="movie">
+            <img class="movies best_movies" alt="movie">
+            
+        </div>
+
+        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(best_movies_slider)"><</a>
+        <a class="switchRight sliderButton" onclick="sliderScrollRight(best_movies_slider)">></a>
+
+    </div>
+    <div class="title"> family</div>
+    
+    <div class="carousel">
+        <div class="movies_box family_movies_group">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            
+        </div>
+
+        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(family_movies_slider)"><</a>
+        <a class="switchRight sliderButton" onclick="sliderScrollRight(family_movies_slider)">></a>
+
+    </div>
+    <div class="title"> animation</div>
+    
+    <div class="carousel">
+        <div class="movies_box animation_movies_group">
+            <img class="movies animation_movies" alt="movie">
+            <img class="movies animation_movies" alt="movie">
+            <img class="movies animation_movies" alt="movie">
+            <img class="movies animation_movies" alt="movie">
+            <img class="movies animation_movies" alt="movie">
+            <img class="movies animation_movies" alt="movie">
+            <img class="movies animation_movies" alt="movie">
+            
+        </div>
+
+        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(animation_movies_slider)"><</a>
+        <a class="switchRight sliderButton" onclick="sliderScrollRight(animation_movies_slider)">></a>
+
+    </div>
+    <div class="title"> adventure</div>
+    
+    <div class="carousel">
+        <div class="movies_box adventure_movies_group">
+            <img class="movies adventure_movies" alt="movie">
+            <img class="movies adventure_movies" alt="movie">
+            <img class="movies adventure_movies" alt="movie">
+            <img class="movies adventure_movies" alt="movie">
+            <img class="movies adventure_movies" alt="movie">
+            <img class="movies adventure_movies" alt="movie">
+            <img class="movies adventure_movies" alt="movie">
+            
+        </div>
+
+        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(adventure_movies_slider)"><</a>
+        <a class="switchRight sliderButton" onclick="sliderScrollRight(adventure_movies_slider)">></a>
+
+    </div>
+    <aside>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="best_movie" class="selected_movie">
+                    <div class="movie">
+                        <div id="title">
+                            
+                        </div>
+                        <ul class="data">
+                            <li id="genres">Genre du film</li>
+                            <li id="countries">Origine</li>
+                            <li id="year">Année </li>
+                            <li id="duration">durée</li>
+                            <li id="rated">Rated</li>
+                            <li id="imdb_score">score Imdb</li>
+                            <li id="budget">box office $</li>
+                            <li id="directors">réalisateurs</li>
+                        </ul>    
+                        <div class="characters">
+                            <div id="actors">
+                                Acteurs: pouvant être une longue liste de noms. voir très longue!
+                            </div>
+                            <div id="description">
+                                Synopsis: idem, un texte plus ou moins long ici. résumé du film sélectionné. Texte déroulant si besoin.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="black-block">
+                    </div>
+                    <div class="url">
+                            <a id="imdb_url" target="_blank">
+                                <img id="image_url_cible" alt="movie_image" title="movie_image" width:200 height:420>
+                            </a>
+                    </div>
+                </div> <!-- fin div best_movie -->
+            </div><!-- fin div modal-content -->
+        </div><!-- fin div modal-->
+    </aside>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script> <!--integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"-->
+    <script src="index.js"></script>
+</body>
+</html>

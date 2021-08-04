@@ -5,10 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>carrousel type netflix</title>
+    <title>Projet 6 JustStreamIt</title>
 </head>
 <body>
-    <div class="title">
+    <header>
+        <div id="conteneur">
+            <div class="element">JustStreamIt</div>
+            <div class="element"><a href="#">Accueil</a></div>
+            <div class="element">
+                <select name="categories" onChange="location.href='' + this.options[this.selectedIndex].value;"> <!-- là ça nous donne une liste déroulante et il faut utiliser selected et non checked -->
+                    <option value="category">Catégories</option>
+                    <option value="#best_movies_ancre">Best Movies</option>
+                    <option value="#family_movies_ancre">Family Movies</option>
+                    <option value="#animation_movies_ancre">Animation Movies</option>
+                    <option value="#adventure_movies_ancre">Adventure Movies</option>
+                </select>
+            </div>
+        </div>
+
+    </header>
+    <section>
+        <div class="title">
+            meilleur film:
+        </div>
+        <div id="meilleurFilm" class="carousel">
+            <div id="meilleurFilm_title"></div>
+            <div id="meilleurFilm_image">
+                <img  alt="best_movie">
+            </div>
+        </div>
+    </section>
+    <section>
+    <div id="best_movies_ancre" class="title">
         Les films les mieux notés
     </div>
     <div class="carousel">
@@ -27,7 +55,7 @@
         <a class="switchRight sliderButton" onclick="sliderScrollRight(best_movies_slider)">></a>
 
     </div>
-    <div class="title"> family</div>
+    <div id="family_movies_ancre" class="title"> family</div>
     
     <div class="carousel">
         <div class="movies_box family_movies_group">
@@ -45,7 +73,7 @@
         <a class="switchRight sliderButton" onclick="sliderScrollRight(family_movies_slider)">></a>
 
     </div>
-    <div class="title"> animation</div>
+    <div id="animation_movies_ancre" class="title"> animation</div>
     
     <div class="carousel">
         <div class="movies_box animation_movies_group">
@@ -63,7 +91,7 @@
         <a class="switchRight sliderButton" onclick="sliderScrollRight(animation_movies_slider)">></a>
 
     </div>
-    <div class="title"> adventure</div>
+    <div id="adventure_movies_ancre" class="title"> adventure</div>
     
     <div class="carousel">
         <div class="movies_box adventure_movies_group">
@@ -81,6 +109,7 @@
         <a class="switchRight sliderButton" onclick="sliderScrollRight(adventure_movies_slider)">></a>
 
     </div>
+</section>
     <aside>
         <div id="myModal" class="modal">
 

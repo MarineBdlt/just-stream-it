@@ -7,15 +7,85 @@ body{
     width: 100%;
     color: white;
     background-color: black;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+#conteneur {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    background: black;
+    width: 98%;
+    margin: 20px;
+    padding: 0;
+  }
+  
+  #conteneur .element {
+    padding: 20px;
+    width: 150px;
+    height: 80px;
+    padding-top: 60px;
+    text-align: center;
+    background: darkgrey;
+    font-size: 1.3rem;
+  }
+  
+  #conteneur .element:nth-child(1) {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    /*flex: 50%;*/
+    text-align: left;
+    padding-left: 40px;
+  }
+select{
+    background: darkgrey;
+    color: white;
+    font-size: 100%;
+    /* border: none; */
+    width: 130px;
+}
+section{
+    height: 100vh;
+    width: 100%;
+    color: white;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
+#meilleurFilm{
+    /* border: 2px solid brown; */
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+}
+#meilleurFilm_title{
+    border: 3px sploid cadetblue;
+    font-size: xx-large;
+    text-transform: uppercase;
+    flex: 1;
+    padding-top: 30px;
+    text-align: left;
+}
+#meilleurFilm_image{
+    border: 3px sploid rgb(235, 5, 166);
+}
 .title{
     position: relative;
     text-transform: uppercase;
-    width: 60%;
+    width: 61%;
     color: white;
     font-size: xx-large;
     text-align: left;
@@ -24,7 +94,7 @@ body{
 }
 .carousel{
     height: 350px;
-    width: 62%;
+    width: 60%;
     position: relative;
     border: 2px solid rgb(14, 14, 202);
 
@@ -36,26 +106,31 @@ body{
     height: 100%;
     width: 45px;
     line-height: 300px;
-    font-size: 25px;
+    font-size: 5em;
     text-align: center;
-    background-color: rgb(216, 11, 11);
+    /* background-color: rgb(216, 11, 11); */
     font-family: sans-serif;
     top: 0;
     z-index: 1;
     border: 2px solid rgb(201, 61, 6);
-
+    padding-top: 20px;
 
 }
 .carousel .switchLeft{
     position: absolute;
     left: -50px;
     border: 2px solid green;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0)), to(black));
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
 
 }
 .carousel .switchRight{
     position: absolute;
     right: -50px;
     border: 2px solid green;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(black));
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%);
+  
 
 }
 .movies_box {
@@ -160,6 +235,7 @@ img:hover {
     height: 420px;
 }
 .movie{
+    padding: 5px;
     flex: 60%
 }
 #image_url_cible{
@@ -175,12 +251,13 @@ img:hover {
     display: grid;
     grid-template-columns: 50% 50%;
     list-style-type: none;
+    min-height: 20px;
     max-height: 120px;
     overflow-y: auto;
 }
 #actors{
     min-height: 20px;
-    max-height: 60px;
+    max-height: 150px;
     overflow-y: auto;
     border: 1px solid rgb(255, 72, 0);
 }
@@ -212,7 +289,7 @@ img:hover {
 .modal-content {
     background-color: #3ff3db;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #888;
     width: 80%;
 }

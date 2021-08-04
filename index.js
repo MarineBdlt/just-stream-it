@@ -4,7 +4,7 @@ const animation_movies_slider = document.querySelector(".animation_movies_group"
 const adventure_movies_slider = document.querySelector(".adventure_movies_group")
 
 var scrollPerClick;
-var ImagePadding = 70
+var ImagePadding = 50
 
 let best_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
 let family_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Family&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
@@ -13,15 +13,28 @@ let adventure_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=
 
 
 showMovieData(best_movies_url, "best_movies")
-console.log("recherche best movies");
 showMovieData(family_movies_url, "family_movies")
-console.log("recherche family movies");
 showMovieData(animation_movies_url, "animation_movies")
-console.log("recherche animation movies");
 showMovieData(adventure_movies_url, "adventure_movies")
-console.log("recherche adventure movies");
 
-
+// get bestmovie from api => return json =>set attribute id to button with film id
+// and image_url for image.
+const getBestMovie = fetch("http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=")
+.then(function(res) {
+  if (res.ok) {
+    return res.json();
+  }
+})
+.then(function(value){
+    let best_movie = document.querySelector("img");
+    best_movie.setAttribute("src",value.results[0].image_url);
+    best_movie.setAttribute("id", value.results[0].id);
+    let best_movie_title=document.getElementById("meilleurFilm_title");
+    best_movie_title.innerText = value.results[0].title;
+})
+.catch(function(err){
+console.log("une erreur est survenue: ", err);
+});
 
 var scrollAmount = 0;
 
@@ -38,7 +51,7 @@ function sliderScrollLeft(selected_class){
 }
 
 function sliderScrollRight(selected_class){
-    if(scrollAmount>=700){
+    if(scrollAmount>=600){
         selected_class.scrollTo({
             top:0,
             left: 0,
@@ -82,49 +95,52 @@ function getMovieInformation(movie_url){
         }
     }).then(function(value){
         let title_element = document.getElementById("title");
-        console.log(title_element);
-        console.log(value.title);
         title_element.innerText = value.title;
-        console.log(value);
+
         document
             .getElementById("genres")
-            .innerText = value.genres;
+            .innerText = `Genres: ${value.genres}`;
         document
             .getElementById("countries")
-            .innerText = value.countries;
+            .innerText = `Countries: ${value.countries}`;
         document
             .getElementById("year")
-            .innerText = value.year;
+            .innerText = `Year: ${value.year}`;
         document
             .getElementById("duration")
-            .innerText = value.duration;
-        document
-            .getElementById("rated")
-            .innerText = value.rated;
+            .innerText = `Duration: ${value.duration} min`;
+        
+        let rated_element = document.getElementById("rated");
+            if (value.rated = "Not rated or unknow rating"){
+                rated_element.innerText = " - "
+            }else {
+                rated_element.innerText = value.rated
+            };
         document
             .getElementById("imdb_score")
-            .innerText = value.imdb_score;
-        document
-            .getElementById("budget")
-            .innerText = value.budget;
+            .innerText = `Imdb Score: ${value.imdb_score}`;
+        
+        let budget_element = document.getElementById("budget")
+        if (value.budget === null){
+            budget_element.innerText = " - ";
+        }else{
+        budget_element.innerText = `Budget: ${value.budget}$`;
+        };
         document
             .getElementById("directors")
-            .innerText = value.directors;
+            .innerText =`Directors: ${value.directors}`;
         document
             .getElementById("actors")
-            .innerText = value.actors;
+            .innerText = `Actors:\n${value.actors}`;
         document
             .getElementById("description")
-            .innerText = value.description;
-        // document
-        //     .getElementById("imdb_url")
-        //     .setAttribute("href",value.imdb_url);
+            .innerText = `Description:\n${value.description}`;
         document
             .getElementById("image_url_cible")
             .setAttribute("src",value.image_url);
     })
     .catch(function(err) {
-        console.log("une erreur est survenue .2!")
+        console.log("une erreur est survenue.")
         });
 }
 
@@ -140,10 +156,7 @@ for (let i = 0; i < imgs.length; i++) {
         modal.style.display = "block";
         //let id_movie = e.target.getAttribute("id");
         let id_movie=imgs[i].getAttribute("id");
-        console.log(id_movie);
         let movie_url = `http://localhost:8000/api/v1/titles/${id_movie}`.split("%20");
-        console.log(movie_url);
-        console.log("On lance la recherche par l'id du film");
         getMovieInformation(movie_url)
   })  
 }

@@ -1,16 +1,17 @@
 const best_movies_slider = document.querySelector(".best_movies_group")
-const family_movies_slider = document.querySelector(".family_movies_group")
-const animation_movies_slider = document.querySelector(".animation_movies_group")
-const adventure_movies_slider = document.querySelector(".adventure_movies_group")
+const family_movies_slider = document.querySelector(".family_group")
+const animation_movies_slider = document.querySelector(".animation_group")
+const adventure_movies_slider = document.querySelector(".adventure_group")
 
 var scrollPerClick;
-var ImagePadding = 50
+var ImagePadding = 50;
 
 let best_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
+let action_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Animation&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
+let comedies_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Adventure&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
 let family_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Family&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
-let animation_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Animation&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
-let adventure_movies_url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=Adventure&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
 
+// mettre les liens équivalents
 
 showMovieData(best_movies_url, "best_movies")
 showMovieData(family_movies_url, "family_movies")
@@ -19,26 +20,52 @@ showMovieData(adventure_movies_url, "adventure_movies")
 
 // get bestmovie from api => return json =>set attribute id to button with film id
 // and image_url for image.
-const getBestMovie = fetch("http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=")
+
+const best_movie_img = document.getElementById("topmovie").getElementsByTagName("img");
+const best_movie_title = document.getElementById("topmovie").getElementsByClassName("heading");
+const best_movie_rate = document.getElementById("topmovie").getElementsByClassName("Score");
+
+// Best movie
+
+fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
 .then(function(res) {
-  if (res.ok) {
-    return res.json();
-  }
+    if (res.ok) {
+        return res.json();
+    }
 })
-.then(function(value){
-    let best_movie = document.querySelector("img");
-    best_movie.setAttribute("src",value.results[0].image_url);
-    best_movie.setAttribute("id", value.results[0].id);
-    let best_movie_title=document.getElementById("meilleurFilm_title");
-    best_movie_title.innerText = value.results[0].title;
+.then(function(data){
+  let results = data.results;
+  let bestmovie = results[0];
+  let lien = bestmovie.image_url;
+  best_movie_img[0].src = lien;
+  best_movie_img[0].id = bestmovie.id;
+  best_movie_title[0].textContent = bestmovie.title;
+  best_movie_rate[0].textContent = "Score ☆ " + bestmovie.imdb_score + " ☆";
 })
 .catch(function(err){
-console.log("une erreur est survenue: ", err);
+console.log("An error has occured: ", err);
 });
+
+
+
+// const getBestMovie = fetch("http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=")
+// .then(function(res) {
+//   if (res.ok) {
+//     return res.json();
+//   }
+// })
+// .then(function(value){
+//     let best_movie = document.querySelector("img");
+//     best_movie.setAttribute("src",value.results[0].image_url);
+//     best_movie.setAttribute("id", value.results[0].id);
+//     let best_movie_title=document.getElementById("bestMovie_title");
+//     best_movie_title.innerText = value.results[0].title;
+// })
+// 
 
 var scrollAmount = 0;
 
-function sliderScrollLeft(selected_class){
+function scrollLeft(selected_class){
     selected_class.scrollTo({
         top:0,
         left: (scrollAmount -= scrollPerClick),
@@ -50,7 +77,7 @@ function sliderScrollLeft(selected_class){
     }
 }
 
-function sliderScrollRight(selected_class){
+function scrollRight(selected_class){
     if(scrollAmount>=600){
         selected_class.scrollTo({
             top:0,
@@ -150,16 +177,18 @@ var modal = document.getElementById("myModal");
 // When the user clicks the button, open modal
 // Fetch informations from api with id movie
 const imgs = document.querySelectorAll("img");
+
 for (let i = 0; i < imgs.length; i++) {
     imgs[i].addEventListener("click", function(e) {
         e.preventDefault();
         modal.style.display = "block";
         //let id_movie = e.target.getAttribute("id");
         let id_movie=imgs[i].getAttribute("id");
-        let movie_url = `http://localhost:8000/api/v1/titles/${id_movie}`.split("%20");
+        let movie_url = `http://localhost:8000/api/v1/titles/${id_movie}`;
         getMovieInformation(movie_url)
   })  
 }
+// .split("%20")
 // Get the <span> element that closes the modal and
 // when the user clicks on <span> (x), close the modal
 var span = document.getElementsByClassName("close")[0];

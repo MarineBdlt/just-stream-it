@@ -5,41 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Projet 6 JustStreamIt</title>
+    <title>JustStreamIt</title>
 </head>
-<body>
-    <header>
-        <div id="conteneur">
-            <div class="element">JustStreamIt</div>
-            <div class="element"><a href="#">Accueil</a></div>
-            <div class="element">
-                <select name="categories" onChange="location.href='' + this.options[this.selectedIndex].value;"> <!-- là ça nous donne une liste déroulante et il faut utiliser selected et non checked -->
-                    <option value="category">Catégories</option>
-                    <option value="#best_movies_ancre">Best Movies</option>
-                    <option value="#family_movies_ancre">Family Movies</option>
-                    <option value="#animation_movies_ancre">Animation Movies</option>
-                    <option value="#adventure_movies_ancre">Adventure Movies</option>
-                </select>
-            </div>
-        </div>
 
+
+<body>
+    <img class="logo" src="img/LOGO.jpg" alt="Logo du site">
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="dropdown"><a href="#">Categories &ensp;</a>
+                <ul class="sous">
+                    <li><a href="#topScore">Top Rated Movies</a></li>
+                    <li><a href="#cat1">Best Action Movies</a></li>
+                    <li><a href="#cat2">Best Comedies</a></li>
+                    <li><a href="#cat3">Family Top Movies</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <img class="bobine" src="img/bobinemini.png" alt="bobine">
+    <h3 class="intro">Don't know what to watch to have a <strong>good night</strong> ? <br></h3>
+    <p class="name">JustStreamIt!</p>
     </header>
-    <section>
-        <div class="title">
-            meilleur film:
+    <div class="topmovie" id="topmovie">
+    <h2>Best movie</h2>
+        <div class="js-modal">
+            <a href="#">
+                <img src="/./.:0" class="affiche" alt="Describe Image">
+                <h3 class="heading"></h3>
+                <p class="Score"></p>
+            </a>
         </div>
-        <div id="meilleurFilm" class="carousel">
-            <div id="meilleurFilm_title"></div>
-            <div id="meilleurFilm_image">
+    </div>
+        <!-- <div class="title">
+            meilleur film:
+        </div> -->
+        <!-- <div id="bestMovie" class="wrapper">
+            <div id="bestMovie_title"></div>
+            <div id="bestMovie_image">
                 <img  alt="best_movie">
             </div>
-        </div>
-    </section>
+        </div -->
     <section>
-    <div id="best_movies_ancre" class="title">
-        Les films les mieux notés
-    </div>
-    <div class="carousel">
+    <div id="topScore" class="title">Top rated movies</div>
+    <div class="wrapper">
         <div class="movies_box best_movies_group"><!-- Random data will come here -->
             <img class="movies best_movies" alt="movie">
             <img class="movies best_movies" alt="movie">
@@ -51,62 +61,62 @@
             
         </div>
 
-        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(best_movies_slider)"><</a>
-        <a class="switchRight sliderButton" onclick="sliderScrollRight(best_movies_slider)">></a>
+        <a class="leftSlider" onclick="scrollLeft(best_movies_slider)">⬅</a>
+        <a class="rightSlider" onclick="scrollRight(best_movies_slider)">➡</a>
 
     </div>
-    <div id="family_movies_ancre" class="title"> family</div>
+    <div id="cat1" class="title">Best Action Movies</div>
     
-    <div class="carousel">
-        <div class="movies_box family_movies_group">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
-            <img class="movies family_movies" alt="movie">
+    <div class="wrapper">
+        <div class="movies_box action_group">
+            <img class="movies action" alt="movie">
+            <img class="movies action" alt="movie">
+            <img class="movies action" alt="movie">
+            <img class="movies action" alt="movie">
+            <img class="movies action" alt="movie">
+            <img class="movies action" alt="movie">
+            <img class="movies action" alt="movie">
             
         </div>
 
-        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(family_movies_slider)"><</a>
-        <a class="switchRight sliderButton" onclick="sliderScrollRight(family_movies_slider)">></a>
+        <a class="leftSlider" onclick="scrollLeft(action_slider)">⬅</a>
+        <a class="rightSlider" onclick="scrollRight(action_slider)">➡</a>
 
     </div>
-    <div id="animation_movies_ancre" class="title"> animation</div>
+    <div id="cat2" class="title">Best Comedies</div>
     
-    <div class="carousel">
-        <div class="movies_box animation_movies_group">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
-            <img class="movies animation_movies" alt="movie">
+    <div class="wrapper">
+        <div class="movies_box comedies_group">
+            <img class="movies comedies" alt="movie">
+            <img class="movies comedies" alt="movie">
+            <img class="movies comedies" alt="movie">
+            <img class="movies comedies" alt="movie">
+            <img class="movies comedies" alt="movie">
+            <img class="movies comedies" alt="movie">
+            <img class="movies comedies" alt="movie">
             
         </div>
 
-        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(animation_movies_slider)"><</a>
-        <a class="switchRight sliderButton" onclick="sliderScrollRight(animation_movies_slider)">></a>
+        <a class="leftSlider" onclick="scrollLeft(comedies_slider)">⬅</a>
+        <a class="rightSlider" onclick="scrollRight(comedies_slider)">➡</a>
 
     </div>
-    <div id="adventure_movies_ancre" class="title"> adventure</div>
+    <div id="cat3" class="title">Family Top Movies</div>
     
-    <div class="carousel">
-        <div class="movies_box adventure_movies_group">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
-            <img class="movies adventure_movies" alt="movie">
+    <div class="wrapper">
+        <div class="movies_box family_group">
+            <img class="movies family" alt="movie">
+            <img class="movies family" alt="movie">
+            <img class="movies family" alt="movie">
+            <img class="movies family" alt="movie">
+            <img class="movies family" alt="movie">
+            <img class="movies family" alt="movie">
+            <img class="movies family" alt="movie">
             
         </div>
 
-        <a class="switchLeft sliderButton" onclick="sliderScrollLeft(adventure_movies_slider)"><</a>
-        <a class="switchRight sliderButton" onclick="sliderScrollRight(adventure_movies_slider)">></a>
+        <a class="leftSlider" onclick="scrollLeft(family_slider)">⬅</a>
+        <a class="rightSlider" onclick="scrollRight(family_slider)">➡</a>
 
     </div>
 </section>
@@ -122,21 +132,19 @@
                             
                         </div>
                         <ul class="data">
-                            <li id="genres">Genre du film</li>
+                            <li id="genres">Type</li>
                             <li id="countries">Origine</li>
-                            <li id="year">Année </li>
-                            <li id="duration">durée</li>
+                            <li id="year">Year</li>
+                            <li id="duration">Duration</li>
                             <li id="rated">Rated</li>
-                            <li id="imdb_score">score Imdb</li>
-                            <li id="budget">box office $</li>
-                            <li id="directors">réalisateurs</li>
+                            <li id="imdb_score">Score Imdb</li>
+                            <li id="budget">Box office</li>
+                            <li id="directors">Directors</li>
                         </ul>    
                         <div class="characters">
                             <div id="actors">
-                                Acteurs: pouvant être une longue liste de noms. voir très longue!
                             </div>
                             <div id="description">
-                                Synopsis: idem, un texte plus ou moins long ici. résumé du film sélectionné. Texte déroulant si besoin.
                             </div>
                         </div>
                     </div>

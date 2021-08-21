@@ -1,7 +1,172 @@
+@charset "UTF-8";
 *{
     margin: 0;
     padding: 0;
+    margin: 0px;
+    padding: 0px;
+    background: black;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.logo {
+  margin-left: 1;
+  float: left;
+  position: absolute;
+}
+
+.bobine {
+  float: right;
+  width: 100px;
+  margin: 0;
+  margin-right: 2em;
+}
+
+.intro {
+  padding-top: 7.5em;
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.name {
+  padding-top: 0.5em;
+  text-align: center;
+  font-size: 1.2em;
+  color: #FFDA2F;
+  font-weight: lighter;
+  letter-spacing: 0.03em;
+}
+
+.corps {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size:  1.3em;
+}
+
+h2 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: lighter;
+  text-align: center;
+}
+
+nav {
+  width: 60%;
+  position: sticky;
+  top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 999;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+}
+nav ul li {
+  position: relative;
+  flex: 1 1 auto;
+  text-align: center;
+  float: right;
+}
+nav a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  border-bottom: 2px solid transparent;
+  padding: 15px 0px;
+}
+nav a:hover {
+  color: #FFDA2F;
+  border-bottom: 2px solid #FFDA2F;
+}
+
+.sous {
+  display: none;
+  box-shadow: 0px 1px 2px #CCC;
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav > ul li:hover .sous {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.sous li {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.sous a {
+  padding: 10px;
+  border-bottom: none;
+  text-align: center;
+}
+
+.sous a:hover {
+  border-bottom: none;
+  background-color: RGBa(200, 200, 200, 0.1);
+}
+
+.dropdown > a::after {
+  content: "▼";
+  font-size: 12px;
+}
+
+#section {
+  float: left;
+  padding-bottom: 5em;
+}
+
+.topmovie {
+    width: 100%;
+    text-align: center;
+    font-size:1.3em;
+    font-weight: lighter;
+    /*-webkit-transform: scale(1.3);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;*/
+    transition: 0.5s ease;
+    font-family: Verdana;
+    margin-bottom: 4em;
+    margin-top: 3em;
+}
+.topmovie:hover {
+  transform: scale(1.1);
+}
+.affiche {
+    height: auto;
+    margin-top: 3em;
+    width: 400px;
+    margin: 0px auto;
+    overflow: hidden;
+    border: 4px solid rgba(255,255,255,0.6);
+    border-color: #FFDA2F;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+}
+
+h1 {
+  text-align: center;
+}
+
+
 body{
     height: 100vh;
     width: 100%;
@@ -65,26 +230,25 @@ section{
     align-items: center;
     flex-wrap: wrap;
 }
-#meilleurFilm{
-    /* border: 2px solid brown; */
+/*#bestMovie{
+    
     display: flex;
     position: relative;
     justify-content: flex-end;
 }
-#meilleurFilm_title{
-    border: 3px sploid cadetblue;
+#bestMovie_title{
+    
     font-size: xx-large;
     text-transform: uppercase;
     flex: 1;
     padding-top: 30px;
     text-align: left;
 }
-#meilleurFilm_image{
-    border: 3px sploid rgb(235, 5, 166);
-}
+#bestMovie_image{
+    
+}*/
 .title{
     position: relative;
-    text-transform: uppercase;
     width: 61%;
     color: white;
     font-size: xx-large;
@@ -92,46 +256,40 @@ section{
     padding-top: 150px;
     padding-bottom: 10px;
 }
-.carousel{
+.wrapper{
     height: 350px;
     width: 60%;
     position: relative;
-    border: 2px solid rgb(14, 14, 202);
-
 }
-.carousel .switchLeft,
-.carousel .switchRight{
+.wrapper .leftSlider,
+.wrapper .rightSlider{
     color: white;
     font-weight: bold;
     height: 100%;
-    width: 45px;
+    width: 55px;
     line-height: 300px;
-    font-size: 5em;
+    font-size: 3em;
     text-align: center;
     /* background-color: rgb(216, 11, 11); */
     font-family: sans-serif;
     top: 0;
     z-index: 1;
-    border: 2px solid rgb(201, 61, 6);
     padding-top: 20px;
 
 }
-.carousel .switchLeft{
+.wrapper .leftSlider{
     position: absolute;
+    size: 0.5em;
     left: -50px;
-    border: 2px solid green;
     background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0)), to(black));
     background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
 
 }
-.carousel .switchRight{
+.wrapper .rightSlider{
     position: absolute;
     right: -50px;
-    border: 2px solid green;
     background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(black));
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%);
-  
-
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%); 
 }
 .movies_box {
     height: 300px;
@@ -144,27 +302,24 @@ section{
     margin-top: 12px;
     display: flex;
     align-items: center;
-    border: 2px solid rgb(0, 128, 122);
 
 }
-.carousel img{
+.wrapper img{
     min-width: 182px;
     max-width: 182px;
     height: 268px;
     background-size: cover;
-    background-color: lightgreen;
     margin: 5px 20px;
     cursor: pointer;
     transition: 0.5s ease;
     z-index: 1;
-    border: 2px solid green;
-
+    border: 2px;
 }
-.carousel img:hover{
+
+.wrapper img:hover{
     transform: scale(1.3);
 }
 #best_movie {
-	border: 2px solid rgba(255, 196, 0, 0.575);
     box-shadow: 0 1px 12px 5px #f47509db;
 	background: black;
 	width: 96%;
@@ -177,12 +332,10 @@ section{
 
 .black-block {
     flex: 10%;
-    border: 1px solid gray;
     flex: 1;
 }
 .movie {
     padding: 0;
-    border: 2px solid rgb(243, 9, 9);
     flex: 60%;
     max-width: 1000px;
     max-height: 420px;
@@ -193,7 +346,6 @@ section{
 }
 #title {
     padding: 10px 0;
-    border: 1px solid blue;
     font-size: 2rem;
     letter-spacing: 2px;
     font-weight: bolder;
@@ -214,7 +366,7 @@ a:hover {
     background-color: #807d7d54;
 }
 
-img:hover {
+.wrapper img:hover {
     transform: scale(1.2);
 }
 #myBtn{
@@ -223,7 +375,6 @@ img:hover {
     transform: scale(1.2);
 }
 .selected_movie {
-	border: 2px solid rgba(255, 196, 0, 0.575);
     box-shadow: 0 1px 12px 5px #f47509db;
 	background: rgb(68, 1, 1);
 	width: 96%;
@@ -239,7 +390,6 @@ img:hover {
     flex: 60%
 }
 #image_url_cible{
-    border: 2px solid coral;
     flex: 30%;
     margin: 44px 20px 40px 20px;
     /* margin-left: 30px; */
@@ -259,15 +409,12 @@ img:hover {
     min-height: 20px;
     max-height: 150px;
     overflow-y: auto;
-    border: 1px solid rgb(255, 72, 0);
 }
 #synopsis{
     overflow-y: auto;
     max-height: 170px;
-    border: 1px solid rgb(255, 0, 212);
 }
 .characters{
-    border: 2px solid rgb(68, 0, 255);
 }
 
 /* The Modal (background) */
@@ -287,10 +434,9 @@ img:hover {
 
 /* Modal Content */
 .modal-content {
-    background-color: #3ff3db;
+    background-color: white;
     margin: auto;
     padding: 10px;
-    border: 1px solid #888;
     width: 80%;
 }
 

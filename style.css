@@ -1,4 +1,14 @@
 @charset "UTF-8";
+
+@font-face {
+  font-family: "League Spartan";
+  src: url('img/LeagueSpartan-Bold.otf') format("truetype");
+  }
+@font-face {
+    font-family: "Saira Stencil One";
+    src: url('img/SairaStencilOne-Regular.ttf') format("truetype");
+  } 
+
 *{
     margin: 0;
     padding: 0;
@@ -6,16 +16,22 @@
     padding: 0px;
     background: black;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "League Spartan";
 }
 
-.logo {
-  margin-left: 1;
-  float: left;
-  position: absolute;
+#logo {
+    margin-top: 0.05em;
+    margin-left: 0.2em;
+    position: absolute;
 }
 
-.bobine {
+#image_accueil {
+  margin-top: 1em;
+  width: 100%;
+}
+
+
+.vignette {
   float: right;
   width: 100px;
   margin: 0;
@@ -32,20 +48,36 @@
 .name {
   padding-top: 0.5em;
   text-align: center;
-  font-size: 1.2em;
-  color: #FFDA2F;
-  font-weight: lighter;
+  font-size: 1.3em;
+  color: white;
   letter-spacing: 0.03em;
+  text-shadow: 0px 2px 2px #ff1616;
 }
 
+strong
+{
+    color: white;
+}
+
+#goodnight 
+{
+    color: white;
+}
 .corps {
   padding-top: 1em;
   display: flex;
   flex-direction: column;
 }
 
+
 .heading {
   font-size:  1.3em;
+  font-family: "Saira Stencil One";
+  text-align: center; 
+}
+
+.Score {
+  text-align: center;
 }
 
 h2 {
@@ -53,51 +85,67 @@ h2 {
   margin-bottom: 0.5em;
   font-weight: lighter;
   text-align: center;
+  font-family: "Saira Stencil One"
 }
 
 nav {
   width: 60%;
-  position: sticky;
+  position: fixed;
   top: 0px;
+  left: 22%;
   margin-left: auto;
   margin-right: auto;
   z-index: 999;
+  border-radius: 30px;
 }
+
 nav ul {
   list-style-type: none;
   display: flex;
   width: 100%;
+  border-radius: 30px;
+  
 }
 nav ul li {
   position: relative;
   flex: 1 1 auto;
   text-align: center;
   float: right;
+  border-radius: 30px;
 }
 nav a {
   display: block;
   text-decoration: none;
+  font-family: "Saira Stencil One";
   color: white;
   border-bottom: 2px solid transparent;
-  padding: 15px 0px;
+  padding: 10px 0px;
+  letter-spacing: 0.06em;
+  border-radius: 30px;
 }
 nav a:hover {
-  color: #FFDA2F;
-  border-bottom: 2px solid #FFDA2F;
+  border-bottom: 2px solid #ff1616;
+  box-shadow: 0px 2px 2px white;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
 }
 
 .sous {
   display: none;
-  box-shadow: 0px 1px 2px #CCC;
-  background-color: white;
+  box-shadow: 0px 1px 2px #ff1616;
+  background-color: black;
   position: absolute;
   width: 100%;
   z-index: 1000;
+  border-radius: 30px;
 }
 
 nav > ul li:hover .sous {
   display: flex;
   flex-flow: column wrap;
+  border-radius: 30px;
+}
 }
 
 .sous li {
@@ -107,13 +155,13 @@ nav > ul li:hover .sous {
 
 .sous a {
   padding: 10px;
-  border-bottom: none;
   text-align: center;
+  border-radius: 30px;
 }
 
 .sous a:hover {
-  border-bottom: none;
-  background-color: RGBa(200, 200, 200, 0.1);
+    color:  white;
+
 }
 
 .dropdown > a::after {
@@ -128,29 +176,30 @@ nav > ul li:hover .sous {
 
 .topmovie {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-size:1.3em;
     font-weight: lighter;
-    /*-webkit-transform: scale(1.3);
-    transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out;*/
     transition: 0.5s ease;
     font-family: Verdana;
     margin-bottom: 4em;
     margin-top: 3em;
 }
-.topmovie:hover {
-  transform: scale(1.1);
-}
+
 .affiche {
+    display: block;
     height: auto;
     margin-top: 3em;
     width: 400px;
-    margin: 0px auto;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
     border: 4px solid rgba(255,255,255,0.6);
-    border-color: #FFDA2F;
+    border-color: #ff1616;
+}
+
+#infos_topmovie {
+  display: flex;
+  flex-direction: column;
 }
 
 html {
@@ -209,7 +258,6 @@ a:hover{
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    /*flex: 50%;*/
     text-align: left;
     padding-left: 40px;
   }
@@ -217,7 +265,6 @@ select{
     background: darkgrey;
     color: white;
     font-size: 100%;
-    /* border: none; */
     width: 130px;
 }
 section{
@@ -230,23 +277,7 @@ section{
     align-items: center;
     flex-wrap: wrap;
 }
-/*#bestMovie{
-    
-    display: flex;
-    position: relative;
-    justify-content: flex-end;
-}
-#bestMovie_title{
-    
-    font-size: xx-large;
-    text-transform: uppercase;
-    flex: 1;
-    padding-top: 30px;
-    text-align: left;
-}
-#bestMovie_image{
-    
-}*/
+
 .title{
     position: relative;
     width: 61%;
@@ -255,6 +286,7 @@ section{
     text-align: left;
     padding-top: 150px;
     padding-bottom: 10px;
+    font-family: "Saira Stencil One"
 }
 .wrapper{
     height: 350px;
@@ -270,7 +302,7 @@ section{
     line-height: 300px;
     font-size: 3em;
     text-align: center;
-    /* background-color: rgb(216, 11, 11); */
+
     font-family: sans-serif;
     top: 0;
     z-index: 1;
@@ -319,11 +351,25 @@ section{
 .wrapper img:hover{
     transform: scale(1.3);
 }
+
+.wrapper .heading {
+  position: absolute;
+  bottom: 23px;
+  color: #fff;
+  font-size: 1.1em;
+  font-family: "Saira Stencil One";
+}
+.wrapper .Score {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  color: #fff;
+}
 #best_movie {
-    box-shadow: 0 1px 12px 5px #f47509db;
-	background: black;
+    *color: #FF1616;
+*/	/background: black;
 	width: 96%;
-	margin: 20px;
+	margin: 5px;
 	padding: 0;
 	text-align: justify;
 	display: flex;
@@ -343,12 +389,14 @@ section{
     display: flex;
     flex-direction: column;
     line-height: 30px;
+    margin-left: 0.2em;
 }
 #title {
     padding: 10px 0;
     font-size: 2rem;
     letter-spacing: 2px;
     font-weight: bolder;
+    font-family: "Saira Stencil One";
 }
 
 em {
@@ -363,7 +411,7 @@ a:hover {
     background-color: black;
 }
 ::-webkit-scrollbar-button {
-    background-color: #807d7d54;
+    background-color: #ff1616;
 }
 
 .wrapper img:hover {
@@ -371,28 +419,24 @@ a:hover {
 }
 #myBtn{
     margin: 40px;
-    box-shadow:  0px 0px 20px 3px #686666;
+    box-shadow:  0px 0px 20px 3px #ff1616;
     transform: scale(1.2);
 }
 .selected_movie {
-    box-shadow: 0 1px 12px 5px #f47509db;
-	background: rgb(68, 1, 1);
-	width: 96%;
+	width: 100%;
 	margin: 20px;
 	padding: 0;
 	text-align: justify;
 	display: flex;
-    flex-direction: row;
-    height: 420px;
+  flex-direction: row;
+  height: 420px;
 }
 .movie{
     padding: 5px;
-    flex: 60%
 }
 #image_url_cible{
     flex: 30%;
     margin: 44px 20px 40px 20px;
-    /* margin-left: 30px; */
     align-items: center;
     width: 220px;
     height: auto;
@@ -404,6 +448,7 @@ a:hover {
     min-height: 20px;
     max-height: 120px;
     overflow-y: auto;
+    margin-left: 0.2em;
 }
 #actors{
     min-height: 20px;
@@ -419,32 +464,35 @@ a:hover {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 2; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none; 
+    position: fixed; 
+    z-index: 2; 
+    padding-top: 100px; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.6); 
 }
 
 /* Modal Content */
 .modal-content {
-    background-color: white;
-    margin: auto;
-    padding: 10px;
-    width: 80%;
+    border: 4px solid rgba(255,255,255,0.6);
+    border-color: #ff1616;    margin: auto;
+    box-shadow: 0px 2px 2px white;
+    width: 75%;
+    border-radius: 30px;
+    z-index: 100;
 }
 
 /* The Close Button */
 .close {
-    color: #2048fa5d;
+    color: #FFFF;
     float: right;
-    font-size: 28px;
+    margin:  0.3em;
+    font-size: 25px;
     font-weight: bold;
 }
 .close:hover,

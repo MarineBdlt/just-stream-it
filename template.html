@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JustStreamIt</title>
+</head>
+
+
+<body>
+    <img id="logo" src="img/logo10%.png" alt="Logo du site">
+    <nav>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li class="dropdown"><a href="#">CATEGORIES &ensp;</a>
+                <ul class="sous">
+                    <li><a href="#topScore">TOP RATED MOVIES</a></li>
+                    <li><a href="#cat1">TOP ACTION MOVIES</a></li>
+                    <li><a href="#cat2">TOP COMEDIES</a></li>
+                    <li><a href="#cat3">FAMILY TOP MOVIES</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <img id="image_accueil" src="img/old_cinema_slogan.png" alt="Image Accueil">
+    </header>
+    <div class="topmovie" id="topmovie">
+    <h2>BEST MOVIE</h2>
+        <div class="js-modal">
+            <a href="#">
+                <div id="rectangle_topmovie">
+                    <img src="/./.:0" class="affiche" alt="Describe Image">
+                    <h3 class="heading"></h3>
+                    <h3 class="Score"></h3>
+                    <div id="infos_topmovie">
+                    </div>
+                </div>
+    
+            </a>
+        </div>
+    </div>
+    <section>
+    <div id="topScore" class="title">TOP RATED MOVIES</div>
+    <div class="wrapper">
+        <div class="movies_box best_movies_group">
+            <img class="movies best_movies" alt="movie">
+            <h3 class="heading"></h3>
+            <p class="Score"></p>
+
+            <img class="movies best_movies" alt="movie">
+            <h3 class="heading"></h3>
+            <p class="Score"></p>
+
+            <img class="movies best_movies" alt="movie">
+            <h3 class="heading"></h3>
+            <p class="Score"></p>
+
+            <img class="movies best_movies" alt="movie">
+            <h3 class="heading"></h3>
+            <p class="Score"></p>
+
+            <img class="movies best_movies" alt="movie">
+            <h3 class="heading"></h3>
+            <p class="Score"></p>
+
+            <img class="movies best_movies" alt="movie">
+            <h3 class="heading"></h3>
+            <p class="Score"></p>
+
+            <img class="movies best_movies" alt="movie">
+            <h3 class="heading"></h3>
+            <p class="Score"></p>
+
+            
+        </div>
+
+        <a class="leftSlider" onclick="scroll_left(best_movies_slider)">‹</a>
+        <a class="rightSlider" onclick="scroll_right(best_movies_slider)">›</a>
+
+    </div>
+    <div id="cat1" class="title">TOP ACTION MOVIES</div>
+    
+    <div class="wrapper">
+        <div class="movies_box action_group">
+            <img class="movies action_movies" alt="movie">
+            <img class="movies action_movies" alt="movie">
+            <img class="movies action_movies" alt="movie">
+            <img class="movies action_movies" alt="movie">
+            <img class="movies action_movies" alt="movie">
+            <img class="movies action_movies" alt="movie">
+            <img class="movies action_movies" alt="movie">
+            
+        </div>
+
+        <a class="leftSlider" onclick="scroll_left(action_movies_slider)">‹</a>
+        <a class="rightSlider" onclick="scroll_right(action_movies_slider)">›</a>
+
+    </div>
+    <div id="cat2" class="title">TOP COMEDIES</div>
+    
+    <div class="wrapper">
+        <div class="movies_box comedies_group">
+            <img class="movies comedies_movies" alt="movie">
+            <img class="movies comedies_movies" alt="movie">
+            <img class="movies comedies_movies" alt="movie">
+            <img class="movies comedies_movies" alt="movie">
+            <img class="movies comedies_movies" alt="movie">
+            <img class="movies comedies_movies" alt="movie">
+            <img class="movies comedies_movies" alt="movie">
+            
+        </div>
+
+        <a class="leftSlider" onclick="scroll_left(comedies_movies_slider)">‹</a>
+        <a class="rightSlider" onclick="scroll_right(comedies_movies_slider)">›</a>
+
+    </div>
+    <div id="cat3" class="title">FAMILY TOP MOVIES</div>
+    
+    <div class="wrapper">
+        <div class="movies_box family_group">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            <img class="movies family_movies" alt="movie">
+            
+        </div>
+
+        <a class="leftSlider" onclick="scroll_left(family_movies_slider)">‹</a>
+        <a class="rightSlider" onclick="scroll_right(family_movies_slider)">›</a>
+
+    </div>
+</section>
+    <aside>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="best_movie" class="selected_movie">
+                    <div class="movie">
+                        <div id="title">
+                            
+                        </div>
+                        <ul class="data">
+                            <li id="genres">Type</li>
+                            <li id="countries">Origine</li>
+                            <li id="year">Year</li>
+                            <li id="duration">Duration</li>
+                            <li id="rated">Rated</li>
+                            <li id="imdb_score">Score Imdb</li>
+                            <li id="budget">Box office</li>
+                            <li id="directors">Directors</li>
+                        </ul>    
+                        <div class="characters">
+                            <div id="actors">
+                            </div>
+                            <div id="description">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="black-block">
+                    </div>
+                    <div class="url">
+                            <a id="imdb_url" target="_blank">
+                                <img id="image_url_cible" alt="movie_image" title="movie_image" width:200 height:420>
+                            </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script> 
+    <script src="myscript.js"></script>
+</body>
+</html>
